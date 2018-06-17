@@ -1,0 +1,32 @@
+@font-face {
+    font-family: 'Apercu Pro Mono';
+    src: url('ApercuPro-Mono.woff2') format('woff2'),
+        url('ApercuPro-Mono.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Apercu Pro';
+    src: url('ApercuPro-Regular.woff2') format('woff2'),
+        url('ApercuPro-Regular.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Apercu Pro';
+    src: url('ApercuPro-Light.woff2') format('woff2'),
+        url('ApercuPro-Light.woff') format('woff');
+    font-weight: 300;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Saveur Sans Round';
+    src: url('SaveurSansRound-Bold.woff2') format('woff2'),
+        url('SaveurSansRound-Bold.woff') format('woff');
+    font-weight: bold;
+    font-style: normal;
+}
+
