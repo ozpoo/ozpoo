@@ -1,14 +1,33 @@
 <?php get_header(); ?>
 
 		<main role="main">
-			<section class="slider">
-				<section class="works flky">
+			<section class="works">
+				<?php
+				$count = 0;
+				$terms = get_terms([
+			    'taxonomy' => 'work_category',
+			    'hide_empty' => false,
+				]);
+				foreach($terms as $term) :
+					$wp_query = new WP_Query();
+					$args = array(
+						'posts_per_page' => -1,
+						'post_type' => 'work',
+						'tax_query' => array(
+							array(
+								'taxonomy' => 'work_category',
+								'field' => 'slug',
+								'terms' => $term->name,
+							)
+						)
+					);
+					?>
+					<section class="term">
 					<?php
-					$count = 0;
-					$temp = $wp_query; $wp_query= null;
-					$wp_query = new WP_Query(); $wp_query->query('posts_per_page=-1&post_type=work');
+					$wp_query->query($args);
 					while ($wp_query->have_posts()) : $wp_query->the_post(); ?>
-					<article class="work" data-aos="fade-left" data-aos-offset="100" data-aos-easing="ease" data-aos-duration="1200" data-aos-delay="<?php echo $count++ * 200; ?>">
+					<!-- <article class="work" data-aos="fade-up" data-aos-offset="0" data-aos-easing="ease" data-aos-duration="1200" data-aos-delay="<?php echo $count++ * 100; ?>"> -->
+					<article class="work" data-aos="fade-up" data-aos-offset="0" data-aos-easing="ease" data-aos-duration="1200" data-aos-delay="0">
 						<button class="toggle">
 							<figure>
 								<?php $thumb = get_post_thumbnail_id(); ?>
@@ -16,23 +35,28 @@
 									alt=""
 									src="<?php echo wp_get_attachment_image_src($thumb, 'w01')[0]; ?>"
 									sizes="auto"
-									data-srcset="<?php echo wp_get_attachment_image_srcset($thumb, 'w08'); ?>"
+									data-srcset="<?php echo wp_get_attachment_image_srcset($thumb, 'w03'); ?>"
 									class="lazyload" />
 							</figure>
 						</button>
 						<div class="description">
-							<h5><?php the_title(); ?></h5>
-							<p class="category">
-									<?php $term_list = wp_get_post_terms($post->ID, 'work_category', array("fields" => "all")); ?>
-								<?php foreach ( $term_list as $term ): ?>
-						    	<span><?php echo $term->name; ?></span>
-								<?php endforeach; ?>
-							</p>
+							<div class="left">
+								<h5><?php the_title(); ?></h5>
+							</div>
+							<div class="right">
+								<p class="category">
+										<?php $term_list = wp_get_post_terms($post->ID, 'work_category', array("fields" => "all")); ?>
+									<?php foreach ( $term_list as $term ): ?>
+							    	<span><?php echo get_field("short_name", $term); ?></span>
+									<?php endforeach; ?>
+								</p>
+							</div>
 						</div>
 					</article>
 					<?php endwhile; ?>
 					<?php wp_reset_postdata(); ?>
-				</section>
+					</section>
+				<?php endforeach; ?>
 			</section>
 		</main>
 

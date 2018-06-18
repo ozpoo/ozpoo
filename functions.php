@@ -226,4 +226,12 @@ function my_acf_admin_head() {
 }
 add_action('acf/input/admin_head', 'my_acf_admin_head');
 
+function my_acf_update_value( $value, $post_id, $field  ) {
+  if(!$value) {
+    $value = get_term(str_replace("term_", "", $post_id), "work_category")->name;
+  }
+  return $value;
+}
+add_filter('acf/update_value/name=short_name', 'my_acf_update_value', 10, 3);
+
 ?>

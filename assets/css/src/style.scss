@@ -201,6 +201,7 @@ $font-header: 'Futwora Pro', Sans-Serif;
 $font-mono: 'Space Mono', monospace;
 $margin: calc(20px + 2.4vw);
 $margin-02: calc(10px + 1.2vw);
+$margin-03: calc(4px + .4vw);
 
 * {
 	font-smoothing: antialiased;
@@ -230,14 +231,14 @@ html {
 
 //Safari font scale fix
 body, html {
-  width: 100vw;
+  min-width: 100%;
 }
 
 body {
 	font-family: $font-copy;
   font-size: 16px;
   font-size: calc(12px + .36vw);
-  line-height: 1.4;
+  line-height: 1.2;
   font-weight: normal;
   color: $black;
   background: $white;
@@ -515,8 +516,8 @@ small {
 
 header {
   position: sticky;
-  top: 0px;
-  left: 0px;
+  top: 0;
+  left: 0;
   width: 100vw;
   display: flex;
   flex-wrap: wrap;
@@ -530,7 +531,7 @@ header {
     flex: 1;
 
     svg {
-      width: calc(36px + 2vw);
+      width: calc(42px + 2vw);
       height: auto;
       vertical-align: middle;
       display: inline-block;
@@ -574,6 +575,13 @@ main {
   }
 }
 
+$work-size: 180px;
+$work-size: calc(140px + 2vw);
+
+#page {
+  width: calc(#{$work-size} * 9 + #{$margin-03} * 20);
+}
+
 .home {
   h1 {
     padding-top: $margin;
@@ -581,101 +589,65 @@ main {
     padding-bottom: $margin;
   }
 
-  .slider {
-    position: relative;
-    padding-top: $margin;
+  .works {
+    display: flex;
+    flex-wrap: nowrap;
+    padding: $margin-03;
 
-    .button--previous {
-      position: absolute;
-      top: 50%;
-      left: 25vw;
-      transform: translate3d(-50%, -50%, 0);
-    }
+    .term {
 
-    .button--next {
-      position: absolute;
-      top: 50%;
-      right: 25vw;
-      transform: translate3d(50%, -50%, 0);
-    }
+      .work {
+        padding: $margin-03;
+        box-sizing: content-box;
 
-    .works {
-      display: flex;
-      flex-wrap: wrap;
+        img {
+          transform: translate3d(0,0,0);
+          width: $work-size;
+          height: $work-size;
+          background: #f0f0f0;
+          object-fit: cover;
+        }
 
-      &.flickity-enabled {
+        .description {
+          display: flex;
+          flex-wrap: nowrap;
+          width: 100%;
+          display: none;
 
-        &.is-fullscreen {
-          background: $white;
-          padding: 0;
-          height: 100vh;
-          width: 100vw;
+          .left, .right {
+            overflow: hidden;
+          }
 
-          .flickity-viewport {
+          p, h5 {
+            padding: $margin-02 0;
+            max-width: 100%;
+            display: block;
+          }
 
-            .flickity-slider {
+          .right {
+            flex-shrink: 0;
+            flex: auto;
+          }
 
-              .work {
-                max-width: none;
-              }
+          .left {
+            flex: auto;
+          }
+
+          .category {
+            text-align: right;
+
+            span {
+              padding-left: 1vw;
+              display: inline-block;
+              font-family: $font-mono;
+              font-size: .6em;
+              letter-spacing: .1em;
             }
           }
         }
-      }
 
-      .flickity-viewport {
-        width: 100%;
-
-        .flickity-slider {
-          display: flex;
-          justify-content: center;
-          align-items: center;
-
-          .work {
-            width: 60vw;
-            padding: 0 $margin-02;
-            max-width: 620px;
-            min-width: 320px;
-
-            img {
-              transform: translate3d(0,0,0);
-            }
-
-            .description {
-              display: flex;
-              flex-wrap: wrap;
-              width: 100%;
-
-              p, h5 {
-                padding: $margin-02 $margin-02;
-                flex: 1;
-              }
-
-              .category {
-                text-align: right;
-                white-space: nowrap;
-
-                span {
-                  margin-left: 1vw;
-                  display: inline-block;
-                  border-bottom: 1px solid $black;
-                  line-height: 1;
-                  padding-bottom: 4px;
-                  font-family: $font-mono;
-                  font-size: .6em;
-                  letter-spacing: .1em;
-                }
-              }
-            }
-
-            button {
-              width: 100%;
-
-              img {
-                width: 100%;
-              }
-            }
-          }
+        button {
+          width: 100%;
         }
       }
     }
@@ -713,6 +685,9 @@ main {
 
 footer {
   padding-bottom: $margin;
+  width: 100vw;
+  position: sticky;
+  left: 0;
 
   .flexer {
     display: flex;
@@ -722,10 +697,10 @@ footer {
       flex: 1;
 
       &.logo {
-        flex: 3;
+        flex: 2;
 
         svg {
-          width: calc(36px + 2vw);
+          width: calc(42px + 2vw);
           height: auto;
           vertical-align: middle;
           display: inline-block;
@@ -758,6 +733,24 @@ footer {
 
 @media only screen and (max-width: 620px) {
 
+}
+
+@media only screen and (orientation: portrait) {
+  #page {
+    width: calc(#{$work-size} * 6 + #{$margin-03} * 14);
+  }
+
+  .home {
+
+    .works {
+      flex-direction: column;
+
+      .term {
+        display: flex;
+        flex-wrap: wrap;
+      }
+    }
+  }
 }
 
 ::selection {
