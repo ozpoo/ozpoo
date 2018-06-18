@@ -509,6 +509,12 @@ small {
   transition: opacity 800ms ease;
   opacity: 0;
 
+  svg {
+    width: 50vw;
+    max-width: 240px;
+    height: auto;
+  }
+
   &.show {
     opacity: 1;
   }
@@ -531,7 +537,7 @@ header {
     flex: 1;
 
     svg {
-      width: calc(42px + 2vw);
+      width: calc(38px + 2vw);
       height: auto;
       vertical-align: middle;
       display: inline-block;
@@ -575,14 +581,17 @@ main {
   }
 }
 
-$work-size: 180px;
-$work-size: calc(140px + 2vw);
+$work-width: calc(180px + 4vw);
+$work-height: calc(#{$work-width} / 3 * 2);
 
-#page {
-  width: calc(#{$work-size} * 9 + #{$margin-03} * 20);
+#site-content-wrap {
+  &.home {
+    width: calc(#{$work-width} * 9 + #{$margin-03} * 20);
+  }
 }
 
 .home {
+
   h1 {
     padding-top: $margin;
     padding-right: 20vw;
@@ -602,8 +611,8 @@ $work-size: calc(140px + 2vw);
 
         img {
           transform: translate3d(0,0,0);
-          width: $work-size;
-          height: $work-size;
+          width: $work-width;
+          height: $work-height;
           background: #f0f0f0;
           object-fit: cover;
         }
@@ -646,11 +655,17 @@ $work-size: calc(140px + 2vw);
           }
         }
 
-        button {
-          width: 100%;
+        a {
+          display: block;
         }
       }
     }
+  }
+}
+
+.single {
+  img {
+    width: 100%;
   }
 }
 
@@ -700,7 +715,7 @@ footer {
         flex: 2;
 
         svg {
-          width: calc(42px + 2vw);
+          width: calc(38px + 2vw);
           height: auto;
           vertical-align: middle;
           display: inline-block;
@@ -736,8 +751,11 @@ footer {
 }
 
 @media only screen and (orientation: portrait) {
-  #page {
-    width: calc(#{$work-size} * 6 + #{$margin-03} * 14);
+
+  #site-content-wrap {
+    &.home {
+      width: calc(#{$work-width} * 6 + #{$margin-03} * 14);
+    }
   }
 
   .home {

@@ -28,7 +28,7 @@
 					while ($wp_query->have_posts()) : $wp_query->the_post(); ?>
 					<!-- <article class="work" data-aos="fade-up" data-aos-offset="0" data-aos-easing="ease" data-aos-duration="1200" data-aos-delay="<?php echo $count++ * 100; ?>"> -->
 					<article class="work" data-aos="fade-up" data-aos-offset="0" data-aos-easing="ease" data-aos-duration="1200" data-aos-delay="0">
-						<button class="toggle">
+						<a href="<?php the_permalink(); ?>">
 							<figure>
 								<?php $thumb = get_post_thumbnail_id(); ?>
 								<img
@@ -38,7 +38,7 @@
 									data-srcset="<?php echo wp_get_attachment_image_srcset($thumb, 'w03'); ?>"
 									class="lazyload" />
 							</figure>
-						</button>
+						</a>
 						<div class="description">
 							<div class="left">
 								<h5><?php the_title(); ?></h5>
