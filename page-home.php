@@ -26,8 +26,8 @@
 					<?php
 					$wp_query->query($args);
 					while ($wp_query->have_posts()) : $wp_query->the_post(); ?>
-					<!-- <article class="work" data-aos="fade-up" data-aos-offset="0" data-aos-easing="ease" data-aos-duration="1200" data-aos-delay="<?php echo $count++ * 100; ?>"> -->
-					<article class="work" data-aos="fade-up" data-aos-offset="0" data-aos-easing="ease" data-aos-duration="1200" data-aos-delay="0">
+					<article class="work" data-aos="fade-in" data-aos-offset="0" data-aos-once="true" data-aos-easing="ease" data-aos-duration="1200" data-aos-delay="<?php echo $count++ * 100; ?>">
+					<!-- <article class="work" data-aos="fade-in" data-aos-offset="0" data-aos-easing="ease" data-aos-duration="1200" data-aos-delay="0"> -->
 						<a href="<?php the_permalink(); ?>">
 							<figure>
 								<?php $thumb = get_post_thumbnail_id(); ?>
