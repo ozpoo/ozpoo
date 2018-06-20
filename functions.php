@@ -20,6 +20,7 @@ if (function_exists('add_theme_support')) {
   add_image_size('w03',   640, '', true);
   add_image_size('w02',   480, '', true);
   add_image_size('w01',   240, '', true);
+  add_image_size('w0l',   40, '', true);
 
   add_theme_support('automatic-feed-links');
   load_theme_textdomain('oz', get_template_directory() . '/languages');

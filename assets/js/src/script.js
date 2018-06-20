@@ -227,29 +227,29 @@
 		var setFlky = function() {
 			if($(".flky").length) {
 				$flky = new Flickity('.flky', {
-					fullscreen: true,
+					fullscreen: false,
 					accessibility: true,
 					adaptiveHeight: false,
 					autoPlay: false,
-					cellAlign: 'center',
+					cellAlign: 'left',
 					cellSelector: undefined,
-					contain: false,
+					contain: true,
 					draggable: true,
 					dragThreshold: 3,
 					freeScroll: false,
 					selectedAttraction: 0.1,
 					friction: 1,
 					groupCells: false,
-					initialIndex: 1,
+					initialIndex: 0,
 					lazyLoad: false,
-					percentPosition: true,
+					percentPosition: false,
 					prevNextButtons: false,
-					pageDots: false,
+					pageDots: true,
 					resize: true,
 					rightToLeft: false,
 					setGallerySize: true,
 					watchCSS: false,
-					wrapAround: true
+					wrapAround: false
 				});
 			}
 		}

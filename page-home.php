@@ -4,6 +4,7 @@
 			<section class="works">
 				<?php
 				$count = 0;
+				$termCount = 0;
 				$terms = get_terms([
 			    'taxonomy' => 'work_category',
 			    'hide_empty' => false,
@@ -22,7 +23,10 @@
 						)
 					);
 					?>
-					<section class="term">
+					<section class="term" data-term="<?php echo $termCount++; ?>">
+					<div class="title">
+						<p><small><?php echo get_field("short_name", $term); ?></small></p>
+					</div>
 					<?php
 					$wp_query->query($args);
 					while ($wp_query->have_posts()) : $wp_query->the_post(); ?>
@@ -33,9 +37,9 @@
 								<?php $thumb = get_post_thumbnail_id(); ?>
 								<img
 									alt=""
-									src="<?php echo wp_get_attachment_image_src($thumb, 'w01')[0]; ?>"
+									src="<?php echo wp_get_attachment_image_src($thumb, 'w0l')[0]; ?>"
 									sizes="auto"
-									data-srcset="<?php echo wp_get_attachment_image_srcset($thumb, 'w03'); ?>"
+									data-srcset="<?php echo wp_get_attachment_image_srcset($thumb, 'w01'); ?>"
 									class="lazyload" />
 							</figure>
 						</a>

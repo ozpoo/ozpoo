@@ -6,17 +6,47 @@
 
 		<?php while (have_posts()) : the_post(); ?>
 			<h3><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h3>
-			<p>
-				<figure data-aos="fade-up" data-aos-offset="0" data-aos-easing="ease" data-aos-duration="1200" data-aos-delay="0">
-					<?php $thumb = get_post_thumbnail_id(); ?>
-					<img
-						alt=""
-						src="<?php echo wp_get_attachment_image_src($thumb, 'w01')[0]; ?>"
-						sizes="auto"
-						data-srcset="<?php echo wp_get_attachment_image_srcset($thumb, 'w03'); ?>"
-						class="lazyload" />
-				</figure>
-			</p>
+			<section class="flky">
+				<section class="feature">
+					<figure data-aos="fade-left" data-aos-offset="0" data-aos-easing="ease" data-aos-duration="1200" data-aos-delay="0">
+						<p>
+							<?php $thumb = get_post_thumbnail_id(); ?>
+							<img
+								alt=""
+								src="<?php echo wp_get_attachment_image_src($thumb, 'w01')[0]; ?>"
+								sizes="auto"
+								data-srcset="<?php echo wp_get_attachment_image_srcset($thumb, 'w03'); ?>"
+								class="lazyload" />
+						</p>
+					</figure>
+				</section>
+				<section class="feature">
+					<figure data-aos="fade-left" data-aos-offset="0" data-aos-easing="ease" data-aos-duration="1200" data-aos-delay="200">
+						<p>
+							<?php $thumb = get_post_thumbnail_id(); ?>
+							<img
+								alt=""
+								src="<?php echo wp_get_attachment_image_src($thumb, 'w01')[0]; ?>"
+								sizes="auto"
+								data-srcset="<?php echo wp_get_attachment_image_srcset($thumb, 'w03'); ?>"
+								class="lazyload" />
+						</p>
+					</figure>
+				</section>
+				<section class="feature">
+					<figure data-aos="fade-up" data-aos-offset="0" data-aos-easing="ease" data-aos-duration="1200" data-aos-delay="0">
+						<p>
+							<?php $thumb = get_post_thumbnail_id(); ?>
+							<img
+								alt=""
+								src="<?php echo wp_get_attachment_image_src($thumb, 'w01')[0]; ?>"
+								sizes="auto"
+								data-srcset="<?php echo wp_get_attachment_image_srcset($thumb, 'w03'); ?>"
+								class="lazyload" />
+						</p>
+					</figure>
+				</section>
+			</section>
 			<?php the_content(); ?>
 		<?php endwhile; ?>
 

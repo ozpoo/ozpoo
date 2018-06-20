@@ -47,7 +47,7 @@
 							</ul>
 						</div>
 					</section>
-					<p class="copy">This site is protected by copyright. &copy;2018 Eric 'Oz' Andren.</p>
+					<p class="copy"><small>This site is protected by copyright. &copy;<?php the_date("Y"); ?> Eric 'Oz' Andren.</small></p>
 				</footer>
 			</div>
 		</section>
