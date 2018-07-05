@@ -514,7 +514,7 @@ small {
 
   svg {
     width: 50vw;
-    max-width: 240px;
+    max-width: 280px;
     height: auto;
   }
 
@@ -548,7 +548,7 @@ header {
     flex: 1;
 
     svg {
-      width: calc(42px + 2vw);
+      width: calc(48px + 2vw);
       height: auto;
       vertical-align: middle;
       display: inline-block;
@@ -563,6 +563,12 @@ header {
       li {
         display: inline-block;
         padding-left: $margin-02;
+
+        .menu-toggle {
+          border: 1px solid $grey-light;
+          padding: $margin-03;
+          line-height: 1;
+        }
       }
     }
   }
@@ -835,7 +841,7 @@ footer {
         flex: 2;
 
         svg {
-          width: calc(38px + 2vw);
+          width: calc(48px + 2vw);
           height: auto;
           vertical-align: middle;
           display: inline-block;
