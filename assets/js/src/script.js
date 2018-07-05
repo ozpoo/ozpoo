@@ -147,6 +147,7 @@
 
 		var reveal = function() {
 			TweenLite.to($("#site-content-wrap"), 0, {autoAlpha:1, delay:0});
+			$(".header").addClass("show");
 			if(!Cookies.get('stdio-promo')) {
 				setTimeout(function(){
 					$(".modal-promotion").addClass("show");
@@ -186,14 +187,16 @@
 			requestAnimationFrame( animate );
 			$scrollTop = $(document).scrollTop();
 			if($(document).height() - $scrollTop < $(window).height() * 1.5) {
-				setMenuTransform("up");
+				setMenuTransform("show");
+			} else if($scrollTop < $("header").height() * 2) {
+				setMenuTransform("top");
 			} else {
 				switch (getDirection()) {
 					case "up":
-						setMenuTransform("up");
+						setMenuTransform("show");
 						break;
 					case "down":
-						setMenuTransform("down");
+						setMenuTransform("hide");
 						break;
 					default:
 						break;
@@ -254,13 +257,19 @@
 			}
 		}
 
-		var setMenuTransform = function(direction) {
-			if(direction == "up" && $current != "show") {
-				$(".logo, .menu-main").addClass("show");
+		var setMenuTransform = function(state) {
+			if(state == "show" && $current != "show") {
+				$(".header").addClass("show");
+				$(".title").removeClass("show");
 				$current = "show";
-			} else if(direction == "down" && $current != "hide") {
-				$(".logo, .menu-main").removeClass("show");
+			} else if(state == "hide" && $current != "hide") {
+				$(".header").removeClass("show");
+				$(".title").addClass("show");
 				$current = "hide";
+			} else if(state == "top" && $current != "hide") {
+				$(".header").addClass("show");
+				$(".title").addClass("show");
+				$current = "show";
 			}
 		};
 

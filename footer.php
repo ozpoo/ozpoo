@@ -23,27 +23,27 @@
 								</a>
 							</p>
 							<p class="big-bottom">
-								Stdio is a new model design agency specialized in the art and science of transitioning products and services into lifestyle brands. Located in Seattle, Stdio has been in business since 2016.
+								Eric Andren &mdash; better known as Oz &mdash; is a Graphic Designer passionately driven to impacting the universe through empowering &mdash; and emboldening &mdash; others. He specializes in the art and science of story telling, question propositioning, and web wrangling. Located in Seattle, he brings deep influence of thought and ethic from his upbringing in the Midwest.
 							</p>
 						</div>
 						<div class="flex">
 							<h5>Connect</h5>
 							<ul>
-								<li><a href="mailto:hello@stdio.com">hello@stdio.com</a></li>
+								<li><a href="mailto:hello@ozpoo.co">hello@ozpoo.co</a></li>
 							</ul>
 							<ul>
-								<li><a href="https://www.facebook.com/goodprco/" target="_blank">Facebook</a></li>
-								<li><a href="https://twitter.com/goodprco/" target="_blank">Twitter</a></li>
-								<li><a href="https://www.instagram.com/goodprco/" target="_blank">Instagram</a></li>
-								<li><a href="https://www.linkedin.com/goodprco/" target="_blank">LinkedIn</a></li>
+								<li><a href="https://www.facebook.com/ozpoo/" target="_blank">Facebook</a></li>
+								<li><a href="https://twitter.com/ozpoo/" target="_blank">Twitter</a></li>
+								<li><a href="https://www.instagram.com/ozpoo/" target="_blank">Instagram</a></li>
+								<li><a href="https://www.linkedin.com/ozpoo/" target="_blank">LinkedIn</a></li>
 							</ul>
 						</div>
 						<div class="flex">
 							<h5>Menu</h5>
 							<ul>
-								<li><a href="<?php echo site_url('/about', 'http'); ?>">About</a></li>
-								<li><a href="<?php echo site_url('/contact', 'http'); ?>">Contact</a></li>
-								<li><a href="<?php echo site_url('/privacy-policy', 'http'); ?>">Privacy Policy</a></li>
+								<li><a href="<?php echo site_url('/', 'http'); ?>">Work</a></li>
+								<li><a href="<?php echo site_url('/about/', 'http'); ?>">About</a></li>
+								<li><a href="<?php echo site_url('/contact/', 'http'); ?>">Contact</a></li>
 							</ul>
 						</div>
 					</section>

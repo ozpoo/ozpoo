@@ -1,6 +1,7 @@
 <?php get_header(); ?>
 
 		<main role="main">
+			<h1>Work</h1>
 			<section class="works">
 				<?php
 				$count = 0;
@@ -24,8 +25,9 @@
 					);
 					?>
 					<section class="term" data-term="<?php echo $termCount++; ?>">
-					<div class="title">
+					<div class="title show">
 						<p><small><?php echo get_field("short_name", $term); ?></small></p>
+						<!-- <p>&darr;</p> -->
 					</div>
 					<?php
 					$wp_query->query($args);
