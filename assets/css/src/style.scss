@@ -187,7 +187,8 @@
 }
 
 $white: rgb(255,255,255);
-$black: rgb(160,160,160);
+// $black: rgb(160,160,160);
+$black: rgb(0,0,0);
 $black-light: rgb(113,117,113);
 $black-lighter: rgb(192,194,192);
 $black-about: rgb(92,97,92);
@@ -296,6 +297,13 @@ body {
     .st1 {
       fill: $white;
     }
+
+    .intro {
+
+      .st2 {
+        fill: $white;
+      }
+    }
   }
 
   &[data-background=contact] {
@@ -304,7 +312,7 @@ body {
 
     a {
       color: $white;
-
+      
       &:hover {
         color: $blue;
 
@@ -316,6 +324,13 @@ body {
 
     .st1 {
       fill: $white;
+    }
+
+    .intro {
+
+      .st2 {
+        fill: $white;
+      }
     }
   }
 
@@ -349,7 +364,6 @@ img {
 
 p, ul, ol, h1, h2, h3, h4, h5 {
   padding: $margin $margin;
-  padding-bottom: 0px;
 }
 
 h1, h2, h3, h4, h5, strong {
@@ -361,6 +375,7 @@ h1 {
   font-family: $font-header;
   letter-spacing: -.06em;
   line-height: 1.2;
+  padding-top: 0;
 }
 
 h2 {
@@ -424,7 +439,7 @@ small {
 }
 
 .st2 {
-  fill: $blue;
+  fill: $black;
 }
 
 .set-back {
@@ -540,12 +555,9 @@ header {
     transform: none;
   }
 
-  p, ul {
-    padding-bottom: $margin-03;
-  }
-
   .logo {
     flex: 1;
+    position: absolute;
 
     svg {
       width: calc(48px + 2vw);
@@ -599,7 +611,7 @@ main {
     opacity: 1;
 
     &.is-selected {
-      background: $blue;
+      background: $black;
     }
   }
 }
@@ -616,16 +628,19 @@ $work-height: calc(#{$work-width} / 3 * 2);
 .home {
 
   h1 {
-    padding-top: $margin;
+    padding-top: 0px;
     padding-right: 20vw;
     padding-bottom: $margin;
+    display: block;
+    position: sticky;
+    left: 0;
+    width: 100vw;
   }
 
   .works {
     display: flex;
     flex-wrap: nowrap;
-    padding: $margin-03 $works-margin;
-    padding-bottom: 8vw;
+    padding: 0 $works-margin;
 
     .term {
 
@@ -633,7 +648,9 @@ $work-height: calc(#{$work-width} / 3 * 2);
         overflow: hidden;
         white-space: nowrap;
         position: sticky;
-        top: -1px;
+        top: 0px;
+        backface-visibility: hidden;
+        will-change: opacity, transform;
         z-index: 999;
         background: white;
         opacity: 0;
@@ -708,13 +725,23 @@ $work-height: calc(#{$work-width} / 3 * 2);
   }
 }
 
+.set-back {
+  color: $grey-light;
+}
+
 .work-list {
   display: grid;
-  grid-template-columns: auto auto auto;
+  grid-template-columns: 1fr 1fr 1fr;
   width: 100vw;
 
   .work-list-post {
+    padding: 0 $margin;
+    padding-bottom: $margin-02;
 
+    .title {
+      padding-top: $margin-03;
+      display: block;
+    }
   }
 }
 
@@ -724,8 +751,11 @@ $work-height: calc(#{$work-width} / 3 * 2);
     display: none;
   }
 
+  h1, h3 {
+    padding-bottom: 0px;
+  }
+
   main {
-    padding-bottom: 8vw;
 
     .container {
       display: flex;
@@ -733,7 +763,7 @@ $work-height: calc(#{$work-width} / 3 * 2);
 
       .flky {
         width: 100vw;
-        padding-top: $margin;
+        padding-bottom: $margin;
 
         .feature {
           width: 70%;
@@ -769,65 +799,45 @@ $work-height: calc(#{$work-width} / 3 * 2);
 
 .about {
 
-  main {
-    padding-bottom: 8vw;
+  .wordz {
+    border-bottom: 3px solid $white;
+  }
 
-    h2, p {
-      padding-top: $margin-02;
-    }
+  h1 {
+    padding-right: 20vw;
+  }
 
-    .wordz {
-      border-bottom: 3px solid $white;
-    }
-
-    .content {
-
-      .text-intro {
-        width: 80vw;
-      }
-
-      .text-content {
-        width: 50vw;
-        padding-top: 4vw;
-      }
-    }
+  .text-content {
+    width: 50vw;
   }
 }
 
 .contact {
+  h1 {
+    padding-right: 20vw;
+  }
 
-  main {
-    padding-bottom: 8vw;
-
-    h2, p {
-      padding-top: $margin-02;
-    }
-
-    .wordz {
-      border-bottom: 3px solid $white;
-    }
-
-    .content {
-
-      .text-intro {
-        width: 80vw;
-      }
-
-      .text-content {
-        width: 50vw;
-      }
-    }
+  .text-content {
+    width: 50vw;
   }
 }
 
 footer {
-  padding-bottom: $margin;
   width: 100vw;
   position: sticky;
   left: 0;
+  padding-bottom: $margin;
 
-  p, ul {
-    padding-top: $margin-02;
+  p, ul, h5 {
+    padding-bottom: 0;
+  }
+
+  .tight-bottom {
+    padding-bottom: $margin-02;
+  }
+
+  .tight-top {
+    padding-top: 0;
   }
 
   .flexer {
@@ -841,14 +851,10 @@ footer {
         flex: 2;
 
         svg {
-          width: calc(48px + 2vw);
+          width: calc(38px + 2vw);
           height: auto;
           vertical-align: middle;
           display: inline-block;
-        }
-
-        .big-bottom {
-          padding-bottom: 8vw;
         }
       }
     }

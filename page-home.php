@@ -1,7 +1,9 @@
 <?php get_header(); ?>
 
 		<main role="main">
-			<h1>Work</h1>
+			<section data-aos="fade-right" data-aos-offset="0" data-aos-easing="ease" data-aos-duration="1200" data-aos-delay="1200">
+				<h1>ozpoø</h1>
+			</section>
 			<section class="works">
 				<?php
 				$count = 0;

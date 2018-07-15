@@ -13,7 +13,7 @@
 			</figure>
 		<?php endif; ?>
 		<p>
-			<strong><?php the_title(); ?></strong><br>
+			<strong><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></strong><br>
 			<?php the_excerpt(); ?>
 		</p>
 	</article>

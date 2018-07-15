@@ -28,10 +28,10 @@
 						</div>
 						<div class="flex">
 							<h5>Connect</h5>
-							<ul>
+							<ul class="tight-bottom">
 								<li><a href="mailto:hello@ozpoo.co">hello@ozpoo.co</a></li>
 							</ul>
-							<ul>
+							<ul class="tight-top">
 								<li><a href="https://www.facebook.com/ozpoo/" target="_blank">Facebook</a></li>
 								<li><a href="https://twitter.com/ozpoo/" target="_blank">Twitter</a></li>
 								<li><a href="https://www.instagram.com/ozpoo/" target="_blank">Instagram</a></li>
@@ -40,14 +40,21 @@
 						</div>
 						<div class="flex">
 							<h5>Menu</h5>
-							<ul>
-								<li><a href="<?php echo site_url('/', 'http'); ?>">Work</a></li>
-								<li><a href="<?php echo site_url('/about/', 'http'); ?>">About</a></li>
-								<li><a href="<?php echo site_url('/contact/', 'http'); ?>">Contact</a></li>
+							<ul class="tight-bottom">
+								<li><a href="<?php echo site_url('/work/', 'http'); ?>">Work</a></li>
+								<li><a href="<?php echo site_url('/essay/', 'http'); ?>">Essays</a></li>
+								<li><a href="<?php echo site_url('/research/', 'http'); ?>">Research</a></li>
+								<li><a href="<?php echo site_url('/profile/', 'http'); ?>">Profile</a></li>
+								<li><a href="<?php echo site_url('/glossary/', 'http'); ?>">Glossary</a></li>
+								<li><a href="<?php echo site_url('/student-work/', 'http'); ?>">Student Work</a></li>
+								<li><a href="<?php echo site_url('/library/', 'http'); ?>">Library</a></li>
+							</ul>
+							<ul class="tight-top">
+								<li><a href="<?php echo site_url('/privacy-policy/', 'http'); ?>">Privacy</a></li>
 							</ul>
 						</div>
 					</section>
-					<p class="copy"><small>This site is protected by copyright. &copy;<?php the_date("Y"); ?> Eric 'Oz' Andren.</small></p>
+					<p class="copy">This site is protected by copyright. &copy;<?php the_date("Y"); ?> Eric 'Oz' Andren.</p>
 				</footer>
 			</div>
 		</section>
