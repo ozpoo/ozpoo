@@ -1,7 +1,7 @@
 <?php get_header(); ?>
 
 		<main role="main">
-			<section data-aos="fade-right" data-aos-offset="0" data-aos-easing="ease" data-aos-duration="1200" data-aos-delay="1200">
+			<section data-aos="fade-right" data-aos-offset="0" data-aos-once="true" data-aos-easing="ease" data-aos-duration="1200" data-aos-delay="1200">
 				<h1>ozpoø</h1>
 			</section>
 			<section class="works">
@@ -28,8 +28,8 @@
 					?>
 					<section class="term" data-term="<?php echo $termCount++; ?>">
 					<div class="title show">
-						<p><small><?php echo get_field("short_name", $term); ?></small></p>
-						<!-- <p>&darr;</p> -->
+						<?php $url = "/work/category/" . $term->slug; ?>
+						<p><small><a href="<?php echo site_url($url, 'http'); ?>"><?php echo get_field("short_name", $term); ?></a></small></p>
 					</div>
 					<?php
 					$wp_query->query($args);

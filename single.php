@@ -3,7 +3,8 @@
 	<main role="main">
 
 		<section class="back">
-			<p><a href="<?php echo site_url('/', 'http'); ?>">&larr; Back Home</a></p>
+			<?php $type = get_post_type_object(get_post_type( $post_id )); ?>
+			<p><a href="<?php echo site_url('/' . $type->rewrite['slug'] . '/', 'http'); ?>">&larr; Back to <?php echo $type->labels->singular_name; ?></a></p>
 		</section>
 
 		<section class="container">

@@ -3,14 +3,15 @@
 	<main role="main">
 
 		<section class="back">
-			<p><a href="<?php echo site_url('/', 'http'); ?>">&larr; Back Home</a></p>
+			<?php $type = get_post_type_object(get_post_type( $post_id )); ?>
+			<p><a href="<?php echo site_url('/' . $type->name . '/', 'http'); ?>">&larr; Back to <?php echo $type->labels->singular_name; ?></a></p>
 		</section>
 
 		<section class="container">
 		<?php while (have_posts()) : the_post(); ?>
 			<section class="flky">
 				<section class="feature">
-					<figure data-aos="fade-left" data-aos-offset="0" data-aos-easing="ease" data-aos-duration="1200" data-aos-delay="0">
+					<figure data-aos="fade-left" data-aos-offset="0" data-aos-easing="ease" data-aos-duration="1200" data-aos-delay="600">
 						<?php $thumb = get_post_thumbnail_id(); ?>
 						<img
 							alt=""
@@ -21,7 +22,7 @@
 					</figure>
 				</section>
 				<section class="feature">
-					<figure data-aos="fade-left" data-aos-offset="0" data-aos-easing="ease" data-aos-duration="1200" data-aos-delay="200">
+					<figure data-aos="fade-left" data-aos-offset="0" data-aos-easing="ease" data-aos-duration="1200" data-aos-delay="800">
 						<?php $thumb = get_post_thumbnail_id(); ?>
 						<img
 							alt=""
@@ -48,6 +49,7 @@
 				<h3>
 					Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.
 				</h3>
+				<p><?php the_terms( $post->ID, 'work_category', '', ', ', ' ' ); ?></p>
 			</section>
 			<section class="content">
 				<?php the_content(); ?>
@@ -55,66 +57,6 @@
 		<?php endwhile; ?>
 
 		</section>
-
-		<script>
-
-			(function ($, root, undefined) {
-				$(function () {
-
-					var loaded, flky, scrollTop, delta;
-
-					$(document).ready(function() {
-						init();
-					});
-
-					$(window).load(function() {
-						reveal();
-						animate();
-					});
-
-					function init() {
-
-					}
-
-					function reveal() {
-
-					}
-
-					function animate() {
-						requestAnimationFrame( animate );
-
-					}
-
-					(function() {
-						var lastTime = 0;
-						var vendors = ['ms', 'moz', 'webkit', 'o'];
-						for(var x = 0; x < vendors.length && !window.requestAnimationFrame; ++x) {
-							window.requestAnimationFrame = window[vendors[x]+'RequestAnimationFrame'];
-							window.cancelAnimationFrame = window[vendors[x]+'CancelAnimationFrame'] || window[vendors[x]+'CancelRequestAnimationFrame'];
-						}
-
-						if (!window.requestAnimationFrame) {
-							window.requestAnimationFrame = function(callback, element) {
-								var currTime = new Date().getTime();
-								var timeToCall = Math.max(0, 16 - (currTime - lastTime));
-								var id = window.setTimeout(function() { callback(currTime + timeToCall); },
-								timeToCall);
-								lastTime = currTime + timeToCall;
-								return id;
-							}
-						}
-
-						if (!window.cancelAnimationFrame) {
-							window.cancelAnimationFrame = function(id) {
-								clearTimeout(id);
-							}
-						}
-					}());
-
-				});
-			})(jQuery, this);
-
-		</script>
 
 	</main>
 

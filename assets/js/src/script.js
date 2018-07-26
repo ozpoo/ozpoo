@@ -136,8 +136,8 @@
 			console.log($newContent);
 			if($newContent.hasClass("home")) {
 				$("body").attr("data-background", "home");
-			} else if($newContent.hasClass("about")) {
-				$("body").attr("data-background", "about");
+			} else if($newContent.hasClass("profile")) {
+				$("body").attr("data-background", "profile");
 			} else if($newContent.hasClass("contact")) {
 				$("body").attr("data-background", "contact");
 			} else {
@@ -225,6 +225,9 @@
 			$('.button--next').on( 'click', function() {
 			  $flky.next();
 			});
+			$('.menu-toggle').on( 'click', function() {
+			  $("footer").toggleClass("show");
+			});
 		};
 
 		var setFlky = function() {
@@ -275,7 +278,7 @@
 
 		var setHumans = function() {
 			setInterval(function(){
-				if($(".about").length) {
+				if($(".profile").length) {
 					var item = $humans[Math.floor(Math.random()*$humans.length)];
 					$(".wordz").html(item);
 				}
