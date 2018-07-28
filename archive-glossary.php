@@ -5,7 +5,7 @@
 			<h1>Glossary</h1>
 		</section>
 		<section class="list">
-			<?php get_template_part('loop-glossary'); ?>
+			<?php get_template_part('loop'); ?>
 			<?php get_template_part('pagination'); ?>
 		</section>
 	</main>

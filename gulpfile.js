@@ -17,6 +17,7 @@ gulp.task('js', function () {
 				// 'assets/font/Font Awesome/svg-with-js/js/fontawesome-all.min.js',
 				'assets/js/_lib/smoothstate/smoothstate.min.js',
 				'assets/js/_lib/lettering/jquery.lettering.js',
+				'assets/js/_lib/three/three.js',
 				'assets/js/_lib/textillate/jquery.textillate.js',
 				'assets/js/_lib/aos/aos.js',
 				'assets/js/_lib/sticky/sticky.min.js',

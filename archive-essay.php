@@ -5,7 +5,7 @@
 			<h1>Essays</h1>
 		</section>
 		<section class="list">
-			<?php get_template_part('loop-essay'); ?>
+			<?php get_template_part('loop'); ?>
 			<?php get_template_part('pagination'); ?>
 		</section>
 	</main>

@@ -4,9 +4,7 @@
 			<!-- <h2>About</h2> -->
 			<div class="content">
 				<div class="text-intro" data-aos="fade-right" data-aos-offset="0" data-aos-once="true" data-aos-easing="ease" data-aos-duration="1200" data-aos-delay="600">
-					<h1>
-						As humans we are <span class="wordz">strong</span> <br>and the solutions we seek through the process of design should be too.
-					</h1>
+					<h1>Humans are <span class="wordz">strong</span> <br>&amp; the solutions we seek through the process of design should be too.</h1>
 				</div>
 				<div class="text-content" data-aos="fade-in" data-aos-offset="0" data-aos-once="true" data-aos-easing="ease" data-aos-duration="1200" data-aos-delay="1200">
 					<?php the_content(); ?>
