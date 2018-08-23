@@ -350,7 +350,7 @@ h1 {
   font-size: 3.2em;
   font-family: $font-header;
   letter-spacing: -.06em;
-  line-height: 1.2;
+  line-height: 1.1;
   padding-top: 0;
 }
 
@@ -565,7 +565,7 @@ header {
 main {
   position: relative;
   z-index: 9;
-  padding-top: 16vh;
+  padding-top: 14vh;
 }
 
 .flickity-page-dots {
@@ -617,7 +617,7 @@ $work-height: calc(#{$work-width} / 3 * 2);
   .works {
     display: flex;
     flex-wrap: nowrap;
-    padding: 0 $works-margin;
+    padding: $margin $works-margin;
 
     .term {
 
@@ -775,18 +775,7 @@ $work-height: calc(#{$work-width} / 3 * 2);
 
 .single {
 
-  h1 {
-    padding-bottom: 0px;
-  }
-
   main {
-    padding-top: 0px;
-
-    .back {
-      p {
-        padding-top: 0px;
-      }
-    }
 
     .container {
       display: flex;
@@ -840,28 +829,46 @@ $work-height: calc(#{$work-width} / 3 * 2);
 
   .text-content {
     padding-right: 50vw;
-    padding-bottom: 16vh;
 
     p {
       padding-top: 0px;
+      padding-bottom: $margin-02;
     }
   }
 }
 
 footer {
   width: 100vw;
-
-  h4, ul, p {
-    padding-top: 0px;
-  }
+  padding-top: 14vh;
 
   .flex {
+    display: flex;
+    flex-wrap: wrap;
+
+    h4, ul, p {
+      padding-bottom: 0px;
+    }
+
+    .column {
+      flex: 1;
+    }
+  }
+
+  .copy {
     display: flex;
     flex-wrap: wrap;
 
     .column {
       flex: 1;
     }
+
+    .right {
+      text-align: right;
+    }
+  }
+
+  .links {
+    padding-top: $margin-02;
   }
 }
 
@@ -873,7 +880,7 @@ footer {
   width: 100vw;
   position: sticky;
   left: 0;
-  padding: $margin;
+  padding: 14vh $margin;
   position: fixed;
   top: 0px;
   left: 0px;
@@ -885,9 +892,30 @@ footer {
   backface-visibility: hidden;
   color: $white;
 
+  .close {
+    position: fixed;
+    top: 0px;
+    right: 0px;
+  }
+
+  .flex {
+    display: flex;
+    flex-wrap: wrap;
+
+    .column {
+      flex: 1;
+    }
+  }
+
   .links {
-    font-size: 1.6em;
+    font-size: 1.8em;
     font-weight: 300;
+
+    a {
+      display: block;
+      color: white;
+      backface-visibility: hidden;
+    }
   }
 
   ul {

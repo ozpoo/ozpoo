@@ -3,16 +3,21 @@
 <?php while (have_posts()) : the_post(); ?>
 
 	<article class="list-post">
-		<?php if ( has_post_thumbnail()) : ?>
-			<?php $thumb = get_post_thumbnail_id(); ?>
-			<a href="<?php the_permalink(); ?>">
-				<!-- <h5 class="title" data-aos="fade-in" data-aos-offset="0" data-aos-once="true" data-aos-easing="ease" data-aos-duration="1200" data-aos-delay="1200"><?php the_title(); ?></h5> -->
+		<a href="<?php the_permalink(); ?>">
+			<?php if ( has_post_thumbnail()) : ?>
+				<?php $thumb = get_post_thumbnail_id(); ?>
 				<figure data-aos="fade-up" data-aos-offset="0" data-aos-once="true" data-aos-easing="ease" data-aos-duration="1200" data-aos-delay="<?php if ($count < 6) { echo $count++ * 100; } ?>">
 					<span class="category">
 						<?php
 							$terms = get_the_terms(get_the_ID(), 'work_category');
+							$numItems = count($terms);
+							$i = 0;
 							foreach($terms as $term){
-								echo get_field("short_name", $term) . "<br>";
+								if(++$i === $numItems) {
+									echo get_field("short_name", $term);
+								} else {
+									echo get_field("short_name", $term) . " & ";
+								}
 							}
 						?>
 					</span>

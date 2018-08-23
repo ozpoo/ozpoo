@@ -9,6 +9,12 @@
 
 		<section class="container">
 		<?php while (have_posts()) : the_post(); ?>
+			<section data-aos="fade-right" data-aos-offset="0" data-aos-easing="ease" data-aos-duration="1200" data-aos-delay="1200">
+				<h1><?php the_title(); ?></h1>
+			</section>
+			<section data-aos="fade-right" data-aos-offset="0" data-aos-easing="ease" data-aos-duration="1200" data-aos-delay="1600">
+				<h2>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.</h2>
+			</section>
 			<section class="flky">
 				<section class="feature">
 					<figure data-aos="fade-left" data-aos-offset="0" data-aos-easing="ease" data-aos-duration="1200" data-aos-delay="600">
@@ -44,15 +50,9 @@
 					</figure>
 				</section>
 			</section>
-			<section class="excerpt">
-				<h1><?php the_title(); ?></h1>
-				<h3>
-					Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.
-				</h3>
-				<p><?php the_terms( $post->ID, 'work_category', '', ', ', ' ' ); ?></p>
-			</section>
 			<section class="content">
 				<?php the_content(); ?>
+				<p><?php the_terms( $post->ID, 'work_category', '', ', ', ' ' ); ?></p>
 			</section>
 		<?php endwhile; ?>
 
