@@ -48,6 +48,7 @@
 									<a href="mailto:hello@ericandren.com">hello@ericandren.com</a>
 								</small>
 							</div>
+							
 						</div>
 					</nav>
 				</div>
