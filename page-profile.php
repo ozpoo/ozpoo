@@ -1,4 +1,11 @@
 <?php get_header(); ?>
+<?php
+	if(is_ssl()) {
+		$scheme = "https";
+	} else {
+		$scheme = "http";
+	}
+?>
 	<?php if (have_posts()): while (have_posts()) : the_post(); ?>
 		<main role="main">
 			<!-- <h2>About</h2> -->

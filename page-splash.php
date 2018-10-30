@@ -1,4 +1,11 @@
 <?php get_header(); ?>
+<?php
+	if(is_ssl()) {
+		$scheme = "https";
+	} else {
+		$scheme = "http";
+	}
+?>
 
 		<main role="main">
 
@@ -48,7 +55,6 @@
 									<a href="mailto:hello@ericandren.com">hello@ericandren.com</a>
 								</small>
 							</div>
-							
 						</div>
 					</nav>
 				</div>

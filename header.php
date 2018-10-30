@@ -1,4 +1,12 @@
 <!doctype html>
+<?php
+	if(is_ssl()) {
+		$scheme = "https";
+	} else {
+		$scheme = "http";
+	}
+?>
+
 <html <?php language_attributes(); ?> class="no-js">
 	<head>
 		<meta charset="<?php bloginfo('charset'); ?>">
@@ -40,23 +48,3 @@
 				<?php if(is_page("home")): ?>
 
 				<?php endif; ?>
-
-				<!-- <header data-aos="fade-in" data-aos-offset="0" data-aos-once="true" data-aos-easing="ease" data-aos-duration="1200" data-aos-delay="0">
-					<nav>
-						<div class="cell">
-							<ul>
-								<li><a href="<?php echo site_url('/', 'http'); ?>">EA</a></li>
-							</ul>
-						</div>
-						<div class="cell">
-							<ul>
-								<li><a href="<?php echo site_url('/work/', 'http'); ?>">Work</a></li>
-								<li><a href="<?php echo site_url('/news/', 'http'); ?>">News</a></li>
-								<li><a href="<?php echo site_url('/about/', 'http'); ?>">About</a></li>
-							</ul>
-						</div>
-						<div class="cell">
-							<p><a href="<?php echo site_url('/contact/', 'http'); ?>">Contact</a></p>
-						</div>
-					</nav>
-				</header> -->

@@ -1,4 +1,11 @@
 <?php get_header(); ?>
+<?php
+	if(is_ssl()) {
+		$scheme = "https";
+	} else {
+		$scheme = "http";
+	}
+?>
 
 	<main role="main">
 		<section data-aos="fade-right" data-aos-offset="0" data-aos-easing="ease" data-aos-duration="1200" data-aos-delay="1200">

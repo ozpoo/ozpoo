@@ -1,4 +1,11 @@
 <?php get_header(); ?>
+<?php
+	if(is_ssl()) {
+		$scheme = "https";
+	} else {
+		$scheme = "http";
+	}
+?>
 
 		<main role="main">
 
@@ -48,8 +55,8 @@
 									<a href="mailto:hello@ericandren.com">hello@ericandren.com</a>
 								</small>
 							</div>
-							<div><a class="workScroll wp-link" href="<?php echo site_url('/work/', 'http'); ?>">Work</a></div>
-							<div><a href="<?php echo site_url('/news/', 'http'); ?>">News</a></div>
+							<div><a class="workScroll wp-link" href="<?php echo get_site_url(null, '/work/', $scheme); ?>">Work</a></div>
+							<div><a href="<?php echo get_site_url(null, '/news/', $scheme); ?>">News</a></div>
 						</div>
 					</nav>
 				</div>
