@@ -2,61 +2,84 @@
 
 	<main role="main">
 
-		<section class="back">
-			<?php $type = get_post_type_object(get_post_type( $post_id )); ?>
-			<p><a href="<?php echo site_url('/' . $type->name . '/', 'http'); ?>">&larr; Back to <?php echo $type->labels->singular_name; ?></a></p>
-		</section>
-
-		<section class="container">
 		<?php while (have_posts()) : the_post(); ?>
-			<section data-aos="fade-right" data-aos-offset="0" data-aos-easing="ease" data-aos-duration="1200" data-aos-delay="1200">
-				<h1><?php the_title(); ?></h1>
-			</section>
-			<section data-aos="fade-right" data-aos-offset="0" data-aos-easing="ease" data-aos-duration="1200" data-aos-delay="1600">
-				<h2>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.</h2>
-			</section>
-			<section class="flky">
-				<section class="feature">
-					<figure data-aos="fade-left" data-aos-offset="0" data-aos-easing="ease" data-aos-duration="1200" data-aos-delay="600">
-						<?php $thumb = get_post_thumbnail_id(); ?>
-						<img
-							alt=""
-							src="<?php echo wp_get_attachment_image_src($thumb, 'w01')[0]; ?>"
-							sizes="auto"
-							data-srcset="<?php echo wp_get_attachment_image_srcset($thumb, 'w03'); ?>"
-							class="lazyload" />
-					</figure>
-				</section>
-				<section class="feature">
-					<figure data-aos="fade-left" data-aos-offset="0" data-aos-easing="ease" data-aos-duration="1200" data-aos-delay="800">
-						<?php $thumb = get_post_thumbnail_id(); ?>
-						<img
-							alt=""
-							src="<?php echo wp_get_attachment_image_src($thumb, 'w01')[0]; ?>"
-							sizes="auto"
-							data-srcset="<?php echo wp_get_attachment_image_srcset($thumb, 'w03'); ?>"
-							class="lazyload" />
-					</figure>
-				</section>
-				<section class="feature">
-					<figure data-aos="fade-up" data-aos-offset="0" data-aos-easing="ease" data-aos-duration="1200" data-aos-delay="0">
-						<?php $thumb = get_post_thumbnail_id(); ?>
-						<img
-							alt=""
-							src="<?php echo wp_get_attachment_image_src($thumb, 'w01')[0]; ?>"
-							sizes="auto"
-							data-srcset="<?php echo wp_get_attachment_image_srcset($thumb, 'w03'); ?>"
-							class="lazyload" />
-					</figure>
-				</section>
-			</section>
-			<section class="content">
-				<?php the_content(); ?>
-				<p><?php the_terms( $post->ID, 'work_category', '', ', ', ' ' ); ?></p>
-			</section>
-		<?php endwhile; ?>
 
-		</section>
+			<div class="panel nobottom">
+				<div class="flex back">
+					<div>
+						<?php $type = get_post_type_object(get_post_type($post_id)); ?>
+						<h1 data-aos="fade-right" data-aos-once="true" data-aos-offset="0" data-aos-easing="ease" data-aos-duration="1200" data-aos-delay="200">
+							<a href="<?php echo site_url('/', 'http'); ?>">&larr;</a>
+						</h1>
+					</div>
+					<div data-aos="fade-in" data-aos-once="false" data-aos-offset="0" data-aos-easing="ease" data-aos-duration="1200" data-aos-delay="200">
+						<h1>
+							<?php the_title(); ?>
+						</h1>
+					</div>
+					<div class="excerpt" data-aos="fade-in" data-aos-once="false" data-aos-offset="0" data-aos-easing="ease" data-aos-duration="1200" data-aos-delay="200">
+						<h1>
+							<?php the_excerpt(); ?>
+						</h1>
+						<p>
+							<small class="setback">
+							<?php
+                $terms = get_the_terms(get_the_ID(), 'work_category');
+                $numItems = count($terms);
+                $i = 0;
+                foreach ($terms as $term) {
+                  if (++$i === $numItems) {
+                      echo $term->name;
+                  } else {
+                      echo $term->name . ", ";
+                  }
+                }
+              ?>
+							</small>
+						</p>
+					</div>
+				</div>
+			</div>
+
+			<div class="panel">
+				<div class="content" data-aos="fade-in" data-aos-once="true" data-aos-offset="0" data-aos-easing="ease" data-aos-duration="1200" data-aos-delay="200">
+					<?php the_content(); ?>
+				</div>
+				<?php
+          if (get_adjacent_post(false, '', true)) {
+              $nextPost = get_adjacent_post(false, '', true);
+              $nextPost = get_the_permalink($nextPost->ID);
+          } else {
+              $nextPost = new WP_Query('posts_per_page=1&order=ASC&post_type=work&orderby=menu_order');
+              $nextPost->the_post();
+              $nextPost = get_the_permalink($nextPost->ID);
+              wp_reset_query();
+          }
+          if (get_adjacent_post(false, '', false)) {
+              $prevPost = get_adjacent_post(false, '', false);
+              $prevPost = get_the_permalink($prevPost->ID);
+          } else {
+              $prevPost = new WP_Query('posts_per_page=1&order=DESC&post_type=work&orderby=menu_order');
+              $prevPost->the_post();
+              $prevPost = get_the_permalink($prevPost->ID);
+              wp_reset_query();
+          }
+        ?>
+				<div class="pagination flex">
+					<div>
+						<h1 data-aos="fade-right" data-aos-once="true" data-aos-offset="0" data-aos-easing="ease" data-aos-duration="1200" data-aos-delay="200"><a href="<?php echo site_url('/', 'http'); ?>">
+							<a href="<?php echo site_url('/', 'http'); ?>">&larr; Overview</a>
+						</h1>
+					</div>
+					<div>
+						<h1 data-aos="fade-left" data-aos-once="true" data-aos-offset="0" data-aos-easing="ease" data-aos-duration="1200" data-aos-delay="200"><a href="<?php echo site_url('/', 'http'); ?>">
+							<a href="<?php echo $nextPost; ?>">Next Project &rarr;</a>
+						</h1>
+					</div>
+				</div>
+			</div>
+
+		<?php endwhile; ?>
 
 	</main>
 

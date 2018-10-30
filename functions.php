@@ -32,10 +32,64 @@ function header_scripts() {
       get_template_directory_uri() . '/assets/js/build/script.js?v='.time(),
       array('jquery'), '1.0.0');
     wp_enqueue_script('script');
+    wp_register_script('three',
+      get_template_directory_uri() . '/assets/js/_lib/three/build/three.min.js',
+      array('jquery'), '1.0.0');
+    wp_enqueue_script('three');
+
+    wp_register_script('ec',
+      get_template_directory_uri() . '/assets/js/_lib/three/lib/postprocessing/EffectComposer.js',
+      array('jquery'), '1.0.0');
+    wp_enqueue_script('ec');
+
+    wp_register_script('rp',
+      get_template_directory_uri() . '/assets/js/_lib/three/lib/postprocessing/RenderPass.js',
+      array('jquery'), '1.0.0');
+    wp_enqueue_script('rp');
+
+    wp_register_script('sp',
+      get_template_directory_uri() . '/assets/js/_lib/three/lib/postprocessing/ShaderPass.js',
+      array('jquery'), '1.0.0');
+    wp_enqueue_script('sp');
+
+    wp_register_script('mp',
+      get_template_directory_uri() . '/assets/js/_lib/three/lib/postprocessing/MaskPass.js',
+      array('jquery'), '1.0.0');
+    wp_enqueue_script('mp');
+
+    wp_register_script('cs',
+      get_template_directory_uri() . '/assets/js/_lib/three/lib/shaders/CopyShader.js',
+      array('jquery'), '1.0.0');
+    wp_enqueue_script('cs');
+
+    wp_register_script('fs',
+      get_template_directory_uri() . '/assets/js/_lib/three/lib/shaders/FilmShader.js',
+      array('jquery'), '1.0.0');
+    wp_enqueue_script('fs');
+
+    wp_register_script('rgbs',
+      get_template_directory_uri() . '/assets/js/_lib/three/lib/shaders/RGBShiftShader.js',
+      array('jquery'), '1.0.0');
+    wp_enqueue_script('rgbs');
+
+    wp_register_script('btvs',
+      get_template_directory_uri() . '/assets/js/_lib/three/js/BadTVShader.js',
+      array('jquery'), '1.0.0');
+    wp_enqueue_script('btvs');
+
+    wp_register_script('ss',
+      get_template_directory_uri() . '/assets/js/_lib/three/js/StaticShader.js',
+      array('jquery'), '1.0.0');
+    wp_enqueue_script('ss');
   }
 }
 
-function conditional_scripts() {
+function conditional_scripts(){
+
+  if ( is_page("home") ) {
+
+
+  }
 
 }
 
@@ -166,15 +220,16 @@ remove_filter('the_excerpt', 'wpautop'); // Remove <p> tags from Excerpt altoget
 function remove_img_p( $content ) {
   $content = preg_replace(
     '/<p>\\s*?(<a rel=\"attachment.*?><img.*?><\\/a>|<img.*?>)?\\s*<\\/p>/s',
-    '<figure>$1</figure>',
+    '<figure data-aos="fadeUp" data-aos-offset="0" data-aos-once="true" data-aos-easing="ease" data-aos-duration="1200" data-aos-delay="200">$1</figure>',
     $content
   );
+  $content = str_replace('<p>', '<p data-aos="fadeUp" data-aos-offset="0" data-aos-once="true" data-aos-easing="ease" data-aos-duration="1200" data-aos-delay="200">', $content);
   return $content;
 }
 add_filter( 'the_content', 'remove_img_p', 99 );
 
 function embed_html( $html ) {
-    return '<figure><div class="video-wrap">' . $html . '</div></figure>';
+    return '<figure data-aos="fadeUp" data-aos-offset="0" data-aos-once="true" data-aos-easing="ease" data-aos-duration="1200" data-aos-delay="200"><div class="video-wrap">' . $html . '</div></figure>';
 }
 add_filter( 'embed_oembed_html', 'embed_html', 10, 3 );
 add_filter( 'video_embed_html', 'embed_html' );
@@ -234,5 +289,15 @@ function my_acf_update_value( $value, $post_id, $field  ) {
   return $value;
 }
 add_filter('acf/update_value/name=short_name', 'my_acf_update_value', 10, 3);
+
+add_action('acf/render_field_settings/type=image', 'add_default_value_to_image_field');
+function add_default_value_to_image_field($field) {
+	acf_render_field_setting( $field, array(
+		'label'			=> 'Default Image',
+		'instructions'		=> 'Appears when creating a new post',
+		'type'			=> 'image',
+		'name'			=> 'default_value',
+	));
+}
 
 ?>

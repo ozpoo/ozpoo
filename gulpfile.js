@@ -33,6 +33,7 @@ gulp.task('js', function () {
 			])
 			.pipe(concat('script.js'))
 			.pipe(uglify())
+			.on('error', function (err) { gutil.log(gutil.colors.red('[Error]'), err.toString()); })
 			.pipe(gulp.dest('assets/js/build'));
 
 		watchJS = true;

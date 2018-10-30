@@ -1,16 +1,21 @@
 <?php get_header(); ?>
 
 	<main role="main">
-		<section data-aos="fade-right" data-aos-offset="0" data-aos-easing="ease" data-aos-duration="1200" data-aos-delay="1200">
-			<h1>News</h1>
+
+		<div class="panel back">
+			<?php $type = get_post_type_object(get_post_type($post_id)); ?>
+			<h1 data-aos="fade-right" data-aos-once="true" data-aos-offset="0" data-aos-easing="ease" data-aos-duration="1200" data-aos-delay="200">
+				<a href="<?php echo site_url('/', 'http'); ?>">&larr;</a>
+			</h1>
+		</div>
+
+		<section class="panel">
+			<section class="news-archive">
+				<?php get_template_part('loop-news'); ?>
+				<?php get_template_part('pagination'); ?>
+			</section>
 		</section>
-		<section data-aos="fade-right" data-aos-offset="0" data-aos-easing="ease" data-aos-duration="1200" data-aos-delay="1600">
-			<h2>A selection of literature that has brought me joy and left an impacting influence on my world view.</h2>
-		</section>
-		<section class="list">
-			<?php get_template_part('loop'); ?>
-			<?php get_template_part('pagination'); ?>
-		</section>
+
 	</main>
 
 <?php get_footer(); ?>

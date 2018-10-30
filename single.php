@@ -2,12 +2,12 @@
 
 	<main role="main">
 
-		<section class="back">
+		<section class="pad back" data-aos="fade-right" data-aos-offset="0" data-aos-once="true" data-aos-easing="ease" data-aos-duration="1200" data-aos-delay="200">
 			<?php $type = get_post_type_object(get_post_type( $post_id )); ?>
 			<p><a href="<?php echo site_url('/' . $type->rewrite['slug'] . '/', 'http'); ?>">&larr; Back to <?php echo $type->labels->singular_name; ?></a></p>
 		</section>
 
-		<section class="container">
+		<section class="pad" data-aos="fade-right" data-aos-offset="0" data-aos-once="true" data-aos-easing="ease" data-aos-duration="1200" data-aos-delay="200">
 			<?php while (have_posts()) : the_post(); ?>
 				<figure data-aos="fade-left" data-aos-offset="0" data-aos-easing="ease" data-aos-duration="1200" data-aos-delay="0">
 					<?php $thumb = get_post_thumbnail_id(); ?>
@@ -18,7 +18,7 @@
 						data-srcset="<?php echo wp_get_attachment_image_srcset($thumb, 'w03'); ?>"
 						class="lazyload" />
 				</figure>
-				<h1><?php the_title(); ?></h1>
+				<p><?php the_title(); ?></p>
 				<?php the_content(); ?>
 			<?php endwhile; ?>
 		</section>
