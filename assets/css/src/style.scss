@@ -813,7 +813,7 @@ footer {
         display: block;
         width: 100%;
         color: $black;
-        margin-bottom: 4vh;
+        margin-bottom: 4vw;
 
         &:hover {
           figure {
@@ -850,15 +850,15 @@ footer {
       }
 
       &:nth-child(even) {
-        padding-left: 2.08%;
+        padding-left: 0;
 
         figure {
-          margin-right: 0px;
+          margin-right: 0;
         }
       }
 
       &:nth-child(odd) {
-        padding-right: 2.08%;
+        padding-right: 0;
 
         figure {
           margin-left: 0px;
