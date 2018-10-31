@@ -1,4 +1,11 @@
 <?php get_header(); ?>
+<?php
+	if(is_ssl()) {
+		$scheme = "https";
+	} else {
+		$scheme = "http";
+	}
+?>
 
 	<main role="main">
 
@@ -6,7 +13,7 @@
 
 			<section class="back" data-aos="fade-right" data-aos-offset="0" data-aos-easing="ease" data-aos-duration="1200" data-aos-delay="200">
 				<?php $type = get_post_type_object(get_post_type( $post_id )); ?>
-				<h1><a href="<?php echo site_url('/' . $type->name . '/', 'http'); ?>">&larr;</a></h1>
+				<h1><a href="<?php echo get_site_url(null, '/news/', $scheme); ?>">&larr;</a></h1>
 			</section>
 
 			<?php while (have_posts()) : the_post(); ?>
