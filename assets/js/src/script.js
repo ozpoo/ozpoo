@@ -46,7 +46,7 @@
 			$options = {
 				prefetch: true,
 				scroll: false,
-				cacheLength: 0,
+				cacheLength: 5,
 				repeatDelay: 600,
 				loadingClass: 'is-loading',
         anchors: 'a',
