@@ -797,8 +797,75 @@ footer {
 
 }
 
-@media only screen and (max-width: 720px) {
+@media only screen and (max-width: 820px) {
+  .work-archive {
+    display: flex;
+    flex-wrap: wrap;
 
+    .work-archive-grid {
+      width: 100%;
+
+      h1 {
+        padding-bottom: 0px;
+      }
+
+      a {
+        display: block;
+        width: 100%;
+        color: $black;
+        margin-bottom: 4vh;
+
+        &:hover {
+          figure {
+            .main-img {
+              opacity: 0;
+            }
+            .hover-img {
+              opacity: 1;
+            }
+          }
+        }
+
+        figure {
+          margin: 0px;
+          position: relative;
+
+          .main-img {
+            opacity: 1;
+          }
+
+          .hover-img {
+            opacity: 0;
+          }
+
+          .hover {
+            position: absolute;
+            top: 0px;
+            left: 0px;
+            z-index: 10;
+            width: 100%;
+            margin: 0;
+          }
+        }
+      }
+
+      &:nth-child(even) {
+        padding-left: 2.08%;
+
+        figure {
+          margin-right: 0px;
+        }
+      }
+
+      &:nth-child(odd) {
+        padding-right: 2.08%;
+
+        figure {
+          margin-left: 0px;
+        }
+      }
+    }
+  }
 }
 
 @media only screen and (max-width: 620px) {
