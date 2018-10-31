@@ -1,4 +1,11 @@
 <?php get_header(); ?>
+<?php
+	if(is_ssl()) {
+		$scheme = "https";
+	} else {
+		$scheme = "http";
+	}
+?>
 
 	<main role="main">
 
@@ -9,7 +16,7 @@
 					<div>
 						<?php $type = get_post_type_object(get_post_type($post_id)); ?>
 						<h1 data-aos="fade-right" data-aos-once="true" data-aos-offset="0" data-aos-easing="ease" data-aos-duration="1200" data-aos-delay="200">
-							<a href="<?php echo site_url('/', 'http'); ?>">&larr;</a>
+							<a href="<?php echo get_site_url(null, '/', $scheme); ?>">&larr;</a>
 						</h1>
 					</div>
 					<div data-aos="fade-in" data-aos-once="false" data-aos-offset="0" data-aos-easing="ease" data-aos-duration="1200" data-aos-delay="200">
@@ -67,12 +74,12 @@
         ?>
 				<div class="pagination flex">
 					<div>
-						<h1 data-aos="fade-right" data-aos-once="true" data-aos-offset="0" data-aos-easing="ease" data-aos-duration="1200" data-aos-delay="200"><a href="<?php echo site_url('/', 'http'); ?>">
-							<a href="<?php echo site_url('/', 'http'); ?>">&larr; Overview</a>
+						<h1 data-aos="fade-right" data-aos-once="true" data-aos-offset="0" data-aos-easing="ease" data-aos-duration="1200" data-aos-delay="200">
+							<a href="<?php echo get_site_url(null, '/', $scheme); ?>">&larr; Overview</a>
 						</h1>
 					</div>
 					<div>
-						<h1 data-aos="fade-left" data-aos-once="true" data-aos-offset="0" data-aos-easing="ease" data-aos-duration="1200" data-aos-delay="200"><a href="<?php echo site_url('/', 'http'); ?>">
+						<h1 data-aos="fade-left" data-aos-once="true" data-aos-offset="0" data-aos-easing="ease" data-aos-duration="1200" data-aos-delay="200">
 							<a href="<?php echo $nextPost; ?>">Next Project &rarr;</a>
 						</h1>
 					</div>
