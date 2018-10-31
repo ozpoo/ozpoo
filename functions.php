@@ -95,7 +95,7 @@ function conditional_scripts(){
 
 function styles() {
   wp_register_style('fonts',
-    get_template_directory_uri() . '/assets/font/fonts/stylesheet.css?v='.time(),
+    get_template_directory_uri() . '/assets/font/fonts/Inter UI/inter-ui.css?v='.time(),
     array(), '1.0', 'all');
   wp_enqueue_style('fonts');
 
