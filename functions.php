@@ -86,11 +86,60 @@ function header_scripts() {
 
 function conditional_scripts(){
 
-  if ( is_page("home") ) {
+  if ( is_page("nrel") ) {
 
+    global $results;
+    global $time_curr;
+    global $time_previous;
+    global $time_check;
+
+    $ID = get_the_ID();
+    $time = get_field("time", $ID);
+    $time_curr = time();
+    $time_previous = date($time);
+    $time_check = $time_previous + 60*60;
+
+    if ( $time_curr > $time_check ) {
+      $results = nrel_api_request();
+      // $results = utf8_encode($results);
+      // $results = htmlspecialchars($results);
+      update_field('cache', $results, $ID);
+      $time_curr = utf8_encode($time_curr);
+      update_field('time', $time_curr, $ID);
+    } else {
+      $results = get_field("cache", $ID);
+    }
+
+    // $results = htmlspecialchars_decode($results);
+    // $results = json_decode($results, true);
+
+    // wp_localize_script( 'script', 'NREL_DATA', $results );
 
   }
 
+}
+
+function nrel_api_request() {
+  $api = "https://developer.nrel.gov/api/solar/solar_resource/v1.json?api_key=qNHIFR5XXNP0YBnIMdx8uaxfcY5QTpFhOV05ahTr&lat=40&lon=-105";
+  $response = get_curl($api);
+  return $response;
+}
+
+function get_curl($url) {
+  if(function_exists('curl_init')) {
+    $ch = curl_init();
+    curl_setopt($ch, CURLOPT_URL,$url);
+    curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+    curl_setopt($ch, CURLOPT_HEADER, 0);
+    curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, 0);
+    curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, 0);
+    $output = curl_exec($ch);
+    echo curl_error($ch);
+    curl_close($ch);
+    return $output;
+  } else{
+    return file_get_contents($url);
+  }
 }
 
 function styles() {
