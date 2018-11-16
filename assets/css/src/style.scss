@@ -210,6 +210,7 @@ $margin-05: calc(1.6vw + .8vw);
 $margin-06: calc(1.8vw + .8vw);
 $margin-07: calc(2vw + .8vw);
 $margin-08: calc(2.2vw + .8vw);
+$margin: calc(20px + 2vw);
 
 * {
 	font-smoothing: antialiased;
@@ -306,7 +307,7 @@ img {
 }
 
 p, ul, ol, h1, h2, h3, h4, h5 {
-  padding-bottom: 4vw;
+  padding-bottom: $margin;
 }
 
 h1, h2, h3, h4, h5, strong {
@@ -409,7 +410,7 @@ small {
 .flickity-page-dots {
   width: auto;
   left: 0;
-  padding: 0 4vw;
+  padding: 0 $margin;
   padding-top: $margin-s;
   transform: translate3d(0,0,0);
   bottom: 0;
@@ -465,7 +466,7 @@ main {
   display: flex;
 
   div {
-    padding-right: 4vw;
+    padding-right: $margin;
     flex:initial;
   }
 }
@@ -477,7 +478,7 @@ main {
   }
 
   figure {
-    padding-bottom: 4vw;
+    padding-bottom: $margin;
   }
 
   .excerpt {
@@ -513,7 +514,7 @@ main {
   }
 
   .pagination {
-    padding-top: 4vw;
+    padding-top: $margin;
     width: 100%;
 
     a {
@@ -539,10 +540,17 @@ main {
   main {
     padding: 0;
   }
+
+  .logo {
+    svg {
+      width: calc(40px + 1vw);
+      height: auto;
+    }
+  }
 }
 
 .panel {
-  padding: 4vw;
+  padding: $margin;
 
   &.nosides {
     padding: 0px;
@@ -627,7 +635,7 @@ main {
 }
 
 header {
-  padding: 4vw;
+  padding: $margin;
   padding-bottom: 0px;
   z-index: 10;
   position: sticky;
@@ -689,7 +697,7 @@ footer {
 .news-archive {
 
   .news-archive-list {
-    padding-bottom: 4vw;
+    padding-bottom: $margin;
 
     p {
       padding-bottom: 2vw;
@@ -813,7 +821,7 @@ footer {
         display: block;
         width: 100%;
         color: $black;
-        margin-bottom: 4vw;
+        margin-bottom: $margin;
 
         &:hover {
           figure {
@@ -869,7 +877,11 @@ footer {
 }
 
 @media only screen and (max-width: 620px) {
-
+  h1, .page-content {
+    font-size: 8.6vw;
+    line-height: 1.1;
+    letter-spacing: -.05em;
+  }
 }
 
 @media only screen and (max-width: 420px) {

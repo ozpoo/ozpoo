@@ -25,7 +25,7 @@
 			<div class="threewrap" data-aos="fade-in" data-aos-once="true" data-aos-offset="0" data-aos-easing="ease" data-aos-duration="1200" data-aos-delay="0">
 
 				<div class="background">
-					<div class="panel text">
+					<div class="panel text logo">
 						<p data-aos="fadeUp" data-aos-once="true" data-aos-offset="0" data-aos-easing="ease" data-aos-duration="1200" data-aos-delay="600">
 							<!-- Generator: Adobe Illustrator 23.0.0, SVG Export Plug-In  -->
 							<svg version="1.0" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="53px"
