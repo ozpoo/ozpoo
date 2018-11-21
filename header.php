@@ -9,6 +9,16 @@
 
 <html <?php language_attributes(); ?> class="no-js">
 	<head>
+		<!-- Global site tag (gtag.js) - Google Analytics -->
+		<script async src="https://www.googletagmanager.com/gtag/js?id=UA-31140322-1"></script>
+		<script>
+		  window.dataLayer = window.dataLayer || [];
+		  function gtag(){dataLayer.push(arguments);}
+		  gtag('js', new Date());
+
+		  gtag('config', 'UA-31140322-1');
+		</script>
+
 		<meta charset="<?php bloginfo('charset'); ?>">
 		<title>
 			<?php wp_title(''); ?>
