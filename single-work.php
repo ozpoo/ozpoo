@@ -72,6 +72,16 @@
               wp_reset_query();
           }
         ?>
+
+				<!-- <div class="about-toggle">
+					<div class="panel" data-aos="fade-right" data-aos-once="true" data-aos-offset="0" data-aos-easing="ease" data-aos-duration="1200" data-aos-delay="200">
+							<button>About &mdash; <?php the_title(); ?></button>
+					</div>
+					<div class="content">
+						<?php echo get_field("about"); ?>
+					</div>
+				</div> -->
+
 				<div class="pagination flex">
 					<div>
 						<h1 data-aos="fade-right" data-aos-once="true" data-aos-offset="0" data-aos-easing="ease" data-aos-duration="1200" data-aos-delay="200">

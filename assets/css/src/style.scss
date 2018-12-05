@@ -359,6 +359,11 @@ input {
 
 button {
   @include button-reset;
+  border: 1px solid $black;
+  // border-radius: 40px;
+  padding: $margin-s;
+  font-size: .8em;
+  background: $white;
 }
 
 small {
@@ -477,8 +482,19 @@ main {
     display: none;
   }
 
-  figure {
+  .wp-block-image, .wp-block-embed {
     padding-bottom: $margin;
+    margin: 0;
+  }
+
+  .wp-block-column:not(:last-child) {
+    margin: 0;
+    padding-right: $margin-02;
+  }
+
+  .wp-block-column:not(:first-child), .wp-block-column:nth-child(2n) {
+    margin: 0;
+    padding-left: $margin-02;
   }
 
   .excerpt {
@@ -529,6 +545,14 @@ main {
         padding-right: 0;
       }
     }
+  }
+
+  .about-toggle {
+    position: fixed;
+    bottom: 0px;
+    left: 0px;
+    z-index: 10;
+    pointer-events: none;
   }
 }
 
