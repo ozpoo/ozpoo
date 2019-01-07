@@ -26,13 +26,13 @@
 									</small>
 								</p>
 							</div>
-							<div data-aos="fade-in" data-aos-once="true" data-aos-offset="0" data-aos-easing="ease" data-aos-duration="1200" data-aos-delay="200">
+							<!-- <div data-aos="fade-in" data-aos-once="true" data-aos-offset="0" data-aos-easing="ease" data-aos-duration="1200" data-aos-delay="200">
 								<p>
 									<small>
 										<a href="<?php echo get_site_url(null, '/', $scheme); ?>">Back to top</a>
 									</small>
 								</p>
-							</div>
+							</div> -->
 							<div data-aos="fade-in" data-aos-once="true" data-aos-offset="0" data-aos-easing="ease" data-aos-duration="1200" data-aos-delay="200">
 								<p>
 									<small>
