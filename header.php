@@ -54,7 +54,3 @@
 
 		<section id="page" class="site-content">
 			<div id="site-content-wrap" <?php body_class(); ?>>
-
-				<?php if(is_page("home")): ?>
-
-				<?php endif; ?>

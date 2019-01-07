@@ -3,7 +3,7 @@
 <?php while (have_posts()) : the_post(); ?>
 
 	<article class="news-archive-list" data-aos="fadeUp" data-aos-offset="0" data-aos-once="true" data-aos-easing="ease" data-aos-duration="1200" data-aos-delay="200">
-		<a href="<?php the_permalink(); ?>">
+		<!-- <a href="<?php the_permalink(); ?>"> -->
 			<p><small><?php echo get_the_date("M Y"); ?></small></p>
 			<h1>
 				<span class="setback">
@@ -22,7 +22,7 @@
 				</span><br>
 				<?php the_title(); ?>
 			</h1>
-		</a>
+		<!-- </a> -->
 	</article>
 
 <?php endwhile; ?>

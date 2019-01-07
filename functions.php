@@ -8,15 +8,12 @@ if (function_exists('add_theme_support')) {
   add_theme_support('post-thumbnails');
 
   add_theme_support('post-thumbnails');
-  add_image_size('w12',   2880, '', true);
-  add_image_size('w11',   2560, '', true);
-  add_image_size('w10',   1920, '', true);
-  add_image_size('w09',   1440, '', true);
-  add_image_size('w08',   1366, '', true);
-  add_image_size('w07',   1280, '', true);
-  add_image_size('w06',   1024, '', true);
-  add_image_size('w05',   960, '', true);
-  add_image_size('w04',   800, '', true);
+  add_image_size('w09',   2880, '', true);
+  add_image_size('w08',   1920, '', true);
+  add_image_size('w07',   1440, '', true);
+  add_image_size('w06',   1280, '', true);
+  add_image_size('w05',   1024, '', true);
+  add_image_size('w04',   960, '', true);
   add_image_size('w03',   640, '', true);
   add_image_size('w02',   480, '', true);
   add_image_size('w01',   240, '', true);
