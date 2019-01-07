@@ -12,7 +12,7 @@
 		<?php while (have_posts()) : the_post(); ?>
 
 			<div class="panel nobottom">
-				<div class="flex back">
+				<div class="flex back no-mobile-flex">
 					<div>
 						<?php $type = get_post_type_object(get_post_type($post_id)); ?>
 						<h1 data-aos="fade-right" data-aos-once="true" data-aos-offset="0" data-aos-easing="ease" data-aos-duration="1200" data-aos-delay="200">
